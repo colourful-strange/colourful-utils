@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>c-utils</title>
+    <title>colourful-utils</title>
 </head>
 <body>
-    <script src="../dist/c-utils.js"></script>
-    <script>
-        window.cUtils = cUtils;
-        console.log(cUtils.legalURLs('https://www.baidu.com'));
-    </script>
     <script type="module">
-        import { legalURLs } from '../dist/c-utils.esm.js';
+        import { legalURLs, formateSeconds, formateTimes } from '../dist/colourful-utils.esm.js';
+        console.log(legalURLs('https://www.baidu.com'));
+        console.log(formateSeconds(3600));
+        console.log(formateTimes('00:00:00'));
     </script>
 </body>
 </html>

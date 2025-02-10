@@ -1,4 +1,7 @@
 import legalURLs from './legalURLs';
+import { formateSeconds, formateTimes } from './formateTime';
 export {
-    legalURLs
+    legalURLs,
+    formateSeconds,
+    formateTimes,
 }

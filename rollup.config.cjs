@@ -20,6 +20,9 @@ module.exports = {
             sourcemap: true,
         }
     ],
+    watch: {
+        include: 'src/**',
+    },
     plugins: [
         json(),
         babel({
