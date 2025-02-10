@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c-utils</title>
+</head>
+<body>
+    <script src="../dist/c-utils.js"></script>
+    <script>
+        window.cUtils = cUtils;
+        console.log(cUtils.legalURLs('https://www.baidu.com'));
+    </script>
+    <script type="module">
+        import { legalURLs } from '../dist/c-utils.esm.js';
+    </script>
+</body>
+</html>
