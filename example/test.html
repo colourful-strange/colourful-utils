@@ -6,15 +6,10 @@
     <title>colourful-utils</title>
 </head>
 <body>
-    <div id="box">
-        <div id="innerBox"></div>
-    </div>
     <script type="module">
-        import { legalURLs, formateSeconds, formateTimes, comparingTime, stopEvent } from '../dist/colourful-utils.esm.js';
-    </script>
-    <script>
-        const box = document.getElementById('box');
-        const innerBox = document.getElementById('innerBox');
+        import { legalURLs, formateSeconds, formateTimes, comparingTime, stopEvent, getStrLen,isMobileDevice,isMobileDeviceIOS } from '../dist/colourful-utils.esm.js';
+        console.log(isMobileDevice());
+        console.log(isMobileDeviceIOS());
         
     </script>
 </body>

@@ -1,4 +1,4 @@
-import { sleep, strTrim } from '../utils';
+import { sleep, strTrim, getStrLen } from '../utils';
 
 describe('sleep', () => {
   beforeEach(() => {
@@ -107,3 +107,33 @@ describe('strTrim', () => {
 
 });
 
+describe('getStrLen', () => {
+    test('should return correct length for ASCII characters', () => {
+        const input = "Hello World";
+        const expectedLength = 11;
+        expect(getStrLen(input)).toBe(expectedLength);
+    });
+
+    test('should return correct length for mixed characters', () => {
+        const input = "Hello, 世界!";
+        const expectedLength = 12; // "Hello, " = 7, "世界" = 4, "!"= 1
+        expect(getStrLen(input)).toBe(expectedLength);
+    });
+
+    test('should return correct length for only non-ASCII characters', () => {
+        const input = "你好";
+        const expectedLength = 4; // Each Chinese character counts as 2
+        expect(getStrLen(input)).toBe(expectedLength);
+    });
+
+    test('should return 0 for an empty string', () => {
+        const input = "";
+        const expectedLength = 0;
+        expect(getStrLen(input)).toBe(expectedLength);
+    });
+
+    test('should return 0 for non-string input', () => {
+        // @ts-expect-error: explicitly testing invalid input
+        expect(getStrLen(null)).toBe(0);
+    });
+});
