@@ -1,6 +1,6 @@
 {
   "name": "colourful-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "常用的工具函数",
   "main": "dist/colourful-utils.js",
   "module": "dist/colourful-utils.esm.js",
@@ -15,6 +15,11 @@
     "name": "colourful",
     "email": "colourful4570@163.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colourful-strange/colourful-utils.git"
+  },
+  "homepage": "https://github.com/colourful-strange/colourful-utils",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.26.4",
