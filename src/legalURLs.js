@@ -1,7 +1,15 @@
 // @flow
 // 判断是否是合法的URL
 export default function legalURLs(url: string): boolean {
-    // const reg = /(http|https):\/\/([\w.]+\/?)\S*/g;
-    const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/g;
-    return reg.test(url);
+    const urlPattern = /^(https?:\/\/)((([a-zA-Z\d-]+\.)+[a-zA-Z]{2,})|(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}))(?::\d{2,5})?(\/[^\s]*)?(\?[^\s#]*)?(#\S*)?$/;
+    url = String(url);
+    if(url.includes('@')){
+        try{
+            new URL(url);
+            return true;
+        }catch(e){
+            return false;
+        }
+    }
+    return urlPattern.test(url);
 }
