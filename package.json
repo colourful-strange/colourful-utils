@@ -17,9 +17,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/colourful-strange/colourful-utils.git"
+    "url": "https://github.com/colourful96/colourful-utils.git"
   },
-  "homepage": "https://github.com/colourful-strange/colourful-utils",
+  "homepage": "https://github.com/colourful96/colourful-utils",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.26.4",

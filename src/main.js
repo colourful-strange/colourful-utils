@@ -1,8 +1,8 @@
 import legalURLs from './legalURLs';
 import { formateSeconds, formateTimes } from './formateTime';
 import comparingTime from './comparingTime';
-import { sleep, strTrim, stopEvent, randomFloat, randomInt, randomIntInclusive, getStrLen } from './utils';
-import { isMobileDevice, isMobileDeviceIOS } from './mobile';
+import { sleep, strTrim, stopEvent, randomFloat, randomInt, getStrLen } from './utils';
+import { isMobileDevice } from './mobile';
 
 export {
     legalURLs,
@@ -14,8 +14,6 @@ export {
     stopEvent,
     randomFloat,
     randomInt,
-    randomIntInclusive,
     getStrLen,
     isMobileDevice,
-    isMobileDeviceIOS
 }

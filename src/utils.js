@@ -24,29 +24,27 @@ export const strTrim = (str: string): string =>  str.replace(/(^\s*)|(\s*$)/g, '
 export const randomFloat = (min: number, max: number):number => Math.random() * (max - min) + min;
 
 /**
- * 两数之间的随机正数
+ * 两数之间的随机整数
  * @param {number} min 最小值
  * @param {number} max 最大值
- * @returns {number} 随机正数
+ * @returns {number} 随机整数
  */
-export const randomInt = (min: number, max: number):number => min + Math.floor(Math.random() * (max - min + 1));
-
-/**
- * 两数之间的随机正数 包含两个数在内
- * @param {number} min 最小值
- * @param {number} max 最大值
- * @returns {number} 随机正数
- */
-export const randomIntInclusive = (min: number, max: number):number => Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+export const randomInt = (min: number, max: number):number => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 /**
  * 阻止事件冒泡
- * @param {MouseEvent} e
+ * @param {MouseEvent | React.MouseEvent} e
  */
-export const stopEvent = (e: MouseEvent) => {
+export const stopEvent = (e: any):boolean => {
     e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    e.returnValue = false;
+    if ('nativeEvent' in e) {
+        e.nativeEvent.stopImmediatePropagation();
+    }
+    e.preventDefault();
     return false;
 }
 
@@ -59,7 +57,6 @@ export const stopEvent = (e: MouseEvent) => {
 export const getStrLen = (str:string):number => {
     if (typeof str === 'string') {
         let len = 0;
-        debugger
         for (let i = 0; i < str.length; i++) {
             if (str.charCodeAt(i) > 0 && str.charCodeAt(i) < 128) {
                 len++;

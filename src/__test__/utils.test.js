@@ -1,4 +1,4 @@
-import { sleep, strTrim, getStrLen } from '../utils';
+import { sleep, strTrim, getStrLen, randomInt } from '../utils';
 
 describe('sleep', () => {
   beforeEach(() => {
@@ -135,5 +135,43 @@ describe('getStrLen', () => {
     test('should return 0 for non-string input', () => {
         // @ts-expect-error: explicitly testing invalid input
         expect(getStrLen(null)).toBe(0);
+    });
+});
+
+describe('randomInt', () => {
+    it('should return a number within the specified range', () => {
+        const min = 5;
+        const max = 10;
+        for (let i = 0; i < 1000; i++) {  // 测试多次确保随机性
+            const result = randomInt(min, max);
+            expect(result).toBeGreaterThanOrEqual(min);
+            expect(result).toBeLessThanOrEqual(max);
+        }
+    });
+
+    it('should handle min and max being the same', () => {
+        const min = 7;
+        const max = 7;
+        const result = randomInt(min, max);
+        expect(result).toBe(7); // 当 min 和 max 相同时，结果总是 min
+    });
+
+    it('should work for negative ranges', () => {
+        const min = -10;
+        const max = -1;
+        for (let i = 0; i < 1000; i++) {  // 测试多次确保随机性
+            const result = randomInt(min, max);
+            expect(result).toBeGreaterThanOrEqual(min);
+            expect(result).toBeLessThanOrEqual(max);
+        }
+    });
+
+    it('should return an integer', () => {
+        const min = 1;
+        const max = 10;
+        for (let i = 0; i < 1000; i++) {  // 测试多次确保结果为整数
+            const result = randomInt(min, max);
+            expect(Number.isInteger(result)).toBe(true);
+        }
     });
 });
