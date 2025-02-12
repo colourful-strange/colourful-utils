@@ -105,4 +105,26 @@ npm install colourful-utils
     isMobileDevice() // { mobile: true, ios: false }
     ```
 
-    
+11. 是否是IE浏览器
+
+     ```javascript
+     import { isIE } from 'colourful-utils'
+     isIE() // false
+     ```
+
+12. RGBA  RGB颜色格式转换为16进制颜色值
+
+     ```javascript
+     import { rgbaToHex, rbgToHex } from 'colourful-utils'
+     rgbaToHex('rgba(255,125,46,0.9)') // #ff7d2ee6
+     rgbToHex('rgb(255,125,46)') // #ff7d2e
+     ```
+
+13. base64数据转换为Blob
+
+     ```javascript
+     import { base64ToBlob } from 'colourful-utils'
+     base64ToBlob('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=') // Blob对象
+     ```
+
+     

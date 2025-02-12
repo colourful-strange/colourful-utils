@@ -68,3 +68,6 @@ export const getStrLen = (str:string):number => {
     }
     return 0;
 };
+
+// const ua = navigator.userAgent;  ie11 及以上版本不包含mise标识
+export const isIE = ():boolean => (!!window.ActiveXObject || "ActiveXObject" in window);

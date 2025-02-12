@@ -1,8 +1,10 @@
 import legalURLs from './legalURLs';
 import { formateSeconds, formateTimes } from './formateTime';
 import comparingTime from './comparingTime';
-import { sleep, strTrim, stopEvent, randomFloat, randomInt, getStrLen } from './utils';
+import { sleep, strTrim, stopEvent, randomFloat, randomInt, getStrLen, isIE } from './utils';
 import { isMobileDevice } from './mobile';
+import base64ToBlob from './baseDataToBlob';
+import { rgbaToHex,  rgbToHex } from './colors';
 
 export {
     legalURLs,
@@ -16,4 +18,8 @@ export {
     randomInt,
     getStrLen,
     isMobileDevice,
+    isIE,
+    base64ToBlob,
+    rgbaToHex,
+    rgbToHex
 }
