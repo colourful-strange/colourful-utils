@@ -1,6 +1,6 @@
 // @flow
 /**
- * 当前时间和传入时间相差多久 
+ * 当前时间和传入时间相差多久
  * 小于1分钟，显示：刚刚
  * 大于等于1分钟、小于1小时，显示：x分钟前
  * 大于等于1小时、小于24小时，显示：x小时前
@@ -16,38 +16,34 @@ const lessOneDay = 1000 * 60 * 60 * 24; // 一天
 const lessFourDay = 1000 * 60 * 60 * 24 * 4; // 四天
 const lessOneYear = 1000 * 60 * 60 * 24 * 365;
 
-export default (time: Date | number, baseTime: Date = new Date()):string => {
+export default (time: Date | number, baseTime: Date = new Date()): string => {
     let originTime = typeof time === 'number' ? time : time.getTime();
     const year = new Date(originTime).getFullYear();
-    let month = new Date(originTime).getMonth() + 1;
-    month = month < 10 ? `0${month}` : month;
-    let day = new Date(originTime).getDate();
-    day = day < 10 ? `0${day}` : day;
-    let hour = new Date(originTime).getHours();
-    hour = hour < 10 ? `0${hour}` : hour;
-    let minute = new Date(originTime).getMinutes();
-    minute = minute < 10 ? `0${minute}` : minute;
+    let month: string = String(new Date(originTime).getMonth() + 1).padStart(2, '0');
+    let day: string = String(new Date(originTime).getDate()).padStart(2, '0');
+    let hour: string = String(new Date(originTime).getHours()).padStart(2, '0');
+    let minute: string = String(new Date(originTime).getMinutes()).padStart(2, '0');
     const currentTime = baseTime.getTime();
     // 当前的时间肯定比传入的时间大
     const differTime = currentTime - originTime;
-    if(differTime < 0){
+    if (differTime < 0) {
         throw new Error('传入的时间不能大于当前时间');
     }
-    
-    if(differTime < lessOneMinute){
+
+    if (differTime < lessOneMinute) {
         return '刚刚';
     }
-    if(differTime >= lessOneMinute && differTime < lessOneHour){
+    if (differTime >= lessOneMinute && differTime < lessOneHour) {
         return `${Math.floor(differTime / lessOneMinute)}分钟前`;
     }
-    if(differTime >= lessOneHour && differTime < lessOneDay){
+    if (differTime >= lessOneHour && differTime < lessOneDay) {
         return `${Math.floor(differTime / lessOneHour)}小时前`;
     }
-    if(differTime >= lessOneDay && differTime < lessFourDay){
+    if (differTime >= lessOneDay && differTime < lessFourDay) {
         return `${Math.floor(differTime / lessOneDay)}天前`;
     }
-    if(differTime >= lessFourDay && differTime < lessOneYear){
+    if (differTime >= lessFourDay && differTime < lessOneYear) {
         return `${month}-${day}  ${hour}:${minute}`;
     }
     return `${year}-${month}-${day}  ${hour}:${minute}`;
-}
+};

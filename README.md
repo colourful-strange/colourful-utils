@@ -127,4 +127,25 @@ npm install colourful-utils
      base64ToBlob('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=') // Blob对象
      ```
 
+14. 将数从一个范围映射到另一个范围
+
+     ```javascript
+     import { scale } from 'colourful-utils'
+     scale(10,0,100,1,10) // 0.1
+     ```
+
+15. 函数的组合使用，当某项数据需要多个方法处理时
+
+     ```javascript
+     import { combination } from 'colourful-utils'
+     function fn1(x){
+        return x * 2;
+     }
+     function fn2(x){
+        return x + 1;
+     }
+     const fn = combination(fn1, fn2);
+     console.log(fn(2)); // 5
+     ```
+
      

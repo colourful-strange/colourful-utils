@@ -1,10 +1,10 @@
 import legalURLs from './legalURLs';
-import { formateSeconds, formateTimes } from './formateTime';
+import {formateSeconds, formateTimes} from './formateTime';
 import comparingTime from './comparingTime';
-import { sleep, strTrim, stopEvent, randomFloat, randomInt, getStrLen, isIE } from './utils';
-import { isMobileDevice } from './mobile';
+import {sleep, strTrim, stopEvent, randomFloat, randomInt, getStrLen, isIE, scale, combination} from './utils';
+import {isMobileDevice} from './mobile';
 import base64ToBlob from './baseDataToBlob';
-import { rgbaToHex,  rgbToHex } from './colors';
+import {rgbaToHex, rgbToHex} from './colors';
 
 export {
     legalURLs,
@@ -21,5 +21,7 @@ export {
     isIE,
     base64ToBlob,
     rgbaToHex,
-    rgbToHex
-}
+    rgbToHex,
+    scale,
+    combination
+};
